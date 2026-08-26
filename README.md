@@ -1,8 +1,9 @@
-# Pemrograman Web
+# Peraktikum Pemrograman Web
+## Identitas Mata Kuliah
+* Program Studi : Teknik Komputer 
+* Institude : Universitas Borneo Tarakan
+* Mata Kuliah  : Pemrograman Web
 
-**Nama** : Muhammad Nur Alfian
-
-**NPM** : 2440304025
 
 ## Deskripsi Proyek
 Proyek ini berisikan judul dengan tulisan "Peraktikum Pemrograman WEb" dan paragraf yang berisi "Repository awal OBE."
