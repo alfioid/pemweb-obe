@@ -1,5 +1,6 @@
 # Peraktikum Pemrograman Web
 ## Identitas Mata Kuliah
+* Nama : Muhammad Nur Alfian
 * Program Studi : Teknik Komputer 
 * Institude : Universitas Borneo Tarakan
 * Mata Kuliah  : Pemrograman Web
@@ -17,3 +18,4 @@ Proyek ini berisikan judul dengan tulisan "Peraktikum Pemrograman WEb" dan parag
 1. Jalankan Laragon 5, klik `Start All`, lalu buka `http://localhost` untuk memastikan Apache berjalan.
 2. Pastikan direktori repository "pemweb-obe" disimpan ke direktory C:\laragon\www
 3. Kemudian Akses halaman melalui `http://localhost/pemweb-obe/
+
