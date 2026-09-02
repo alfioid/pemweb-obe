@@ -1,13 +1,63 @@
-<!doctype html> 
-<html lang="id"> 
-<head> 
-<meta name="description" content="Website resmi praktikum mata kuliah Pemrograman Web.">
-<meta charset="utf-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<title>Praktikum Pemrograman Web</title> 
-</head> 
-<body> 
-<h1>Praktikum Pemrograman Web</h1> 
-<p>Repository awal OBE.</p> 
-</body> 
-</html> 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Projek Pemrograman Web</title>
+</head>
+<body>
+    <!-- Header & Navigasi -->
+    <header>
+        <h1>Portofolio & Web Resmi</h1>
+        <nav>
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Section 1: Profil / Hero -->
+        <section id="tentang">
+            <h2>Tentang Saya</h2>
+            <img src=C:\laragon\www\pemweb-obe\red.png alt="Foto profil pengguna">
+            <p>Selamat datang di situs web resmi saya. Halaman ini dibangun sebagai bagian dari praktikum Pemrograman Web.</p>
+        </section>
+        <!-- Section 2: Artikel / Layanan -->
+        <section id="artikel">
+            <h2>Artikel Terbaru</h2>
+            <article>
+                <h3>Pengenalan Struktur Semantik HTML</h3>
+                <p>Menggunakan elemen seperti header, nav, main, dan footer membuat struktur kode lebih mudah dibaca oleh mesin pencari maupun pembaca layar.</p>
+            </article>
+        </section>
+        <!-- Section 3: Form Kontak -->
+        <section id="kontak">
+            <h2>Hubungi Saya</h2>
+            <form action="#" method="POST">
+                <div>
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <br>
+                <div>
+                    <label for="pesan">Pesan:</label>
+                    <textarea id="pesan" name="pesan" rows="4" required></textarea>
+                </div>
+                <br>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Teknik Komputer UBT. All rights reserved.</p>
+    </footer>z
+</body>
+</html>
