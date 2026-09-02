@@ -19,3 +19,5 @@ Proyek ini berisikan judul dengan tulisan "Peraktikum Pemrograman WEb" dan parag
 2. Pastikan direktori repository "pemweb-obe" disimpan ke direktory C:\laragon\www
 3. Kemudian Akses halaman melalui `http://localhost/pemweb-obe/
 
+## Madul 2
+membentuk kerangka dari web
