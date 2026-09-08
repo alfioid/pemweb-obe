@@ -6,58 +6,69 @@
     <title>Beranda - Projek Pemrograman Web</title>
 </head>
 <body>
-    <!-- Header & Navigasi -->
     <header>
-        <h1>Portofolio & Web Resmi</h1>
+        <h1>Dashboard Admin</h1>
         <nav>
             <ul>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#artikel">Artikel</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#manejemen kamar">Manejemen Kamar</a></li>
+                <li><a href="#keuangan">Histori Keuangan</a></li>
+                <li><a href="#kalender">Kalender</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <!-- Section 1: Profil / Hero -->
-        <section id="tentang">
-            <h2>Tentang Saya</h2>
-            <img src=C:\laragon\www\pemweb-obe\red.png alt="Foto profil pengguna">
-            <p>Selamat datang di situs web resmi saya. Halaman ini dibangun sebagai bagian dari praktikum Pemrograman Web.</p>
-        </section>
-        <!-- Section 2: Artikel / Layanan -->
-        <section id="artikel">
-            <h2>Artikel Terbaru</h2>
+        <section id="manejemen kamar">
+            <h2>Manejemen Kamar</h2>
             <article>
-                <h3>Pengenalan Struktur Semantik HTML</h3>
-                <p>Menggunakan elemen seperti header, nav, main, dan footer membuat struktur kode lebih mudah dibaca oleh mesin pencari maupun pembaca layar.</p>
+               <img src=sketsa.png alt="sketsa kost">
+                <h3>kamar 101</h3>
+                <img src=kamar.png alt="kamar  kost">
+                <ul>
+                    <li>kipas</li>
+                    <li>lemari</li>
+                    <li>tempat tidur</li>
+                </ul>
+                <button>edit data</button>
             </article>
         </section>
-        <!-- Section 3: Form Kontak -->
-        <section id="kontak">
-            <h2>Hubungi Saya</h2>
-            <form action="#" method="POST">
-                <div>
-                    <label for="nama">Nama Lengkap:</label>
-                    <input type="text" id="nama" name="nama" required>
-                </div>
-                <br>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <br>
-                <div>
-                    <label for="pesan">Pesan:</label>
-                    <textarea id="pesan" name="pesan" rows="4" required></textarea>
-                </div>
-                <br>
-                <button type="submit">Kirim Pesan</button>
-            </form>
+        
+        <section id="keuangan">
+            <h2>Histori Keuangan</h2>
+            <article>
+                <table border = "1">
+                <tr>
+                    <td colspan="2">total uang</td>
+                </tr>
+                <tr>
+                    <td>uang masuk</td><td>uang keluar</td>
+                </tr>
+                <tr>
+                    <td>keterangan  harganya</td> <td>keterangan harganya</td>
+            </table>
+            </article>
+        </section>
+        
+        <section id="kalender">
+          <article>
+            <h2>Kalender</h2>
+            <img src=coba alt="Foto kalender">
+            <p>Kalender berisikan jadwal bayar kost <button>edit data</button></p>
+            <h3>Cari nama</h3>
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama">
+            <table border = "1">
+                <tr>
+                    <td>nama1, nama2</td> <td>nomor kamar</td>     <td>tanggal bayar</td>
+                    <td>tanggal habis</td> <td>jumlah bayar</td>   <td>berapa bulan</td>
+                </tr>
+            </table>
+            <button>bayar</button>
+          </article>
         </section>
     </main>
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Teknik Komputer UBT. All rights reserved.</p>
-    </footer>z
+        <p>&copy; 2023 Projek Pemrograman Web. <a href="https://github.com/alfioid/pemweb-obe">GitHub</a> </p>
+        
+    </footer>
 </body>
-</html>
+</html
