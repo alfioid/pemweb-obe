@@ -19,5 +19,16 @@ Proyek ini berisikan judul dengan tulisan "Peraktikum Pemrograman WEb" dan parag
 2. Pastikan direktori repository "pemweb-obe" disimpan ke direktory C:\laragon\www
 3. Kemudian Akses halaman melalui `http://localhost/pemweb-obe/
 
-## Madul 2
-membentuk kerangka dari web
+## Modul 2
+Pada halaman website ini sudah terdapat beberapa struktur dasar HTML, seperti head dan body. Pada bagian body, terdapat header yang berfungsi sebagai judul halaman dan dilengkapi dengan navigation (nav) untuk mengarahkan pengguna ke bagian atau bab yang dipilih.
+
+
+## Checklist aksesibilitas dasar
+| Parameter |	Implementasi pada Kode | Status |
+| lang |	Menggunakan <html lang="id"> untuk bahasa Indonesia. |	✓ |
+| Heading |	Terstruktur runtut: 1x h1, 3x h2, dan h3 (tidak melompat). |	✓ |
+| alt |	Gambar memiliki deskripsi jelas, ikon dekoratif memakai alt="". |	✓ |
+| Label Form |	Setiap input terhubung dengan <label> via atribut for dan id. |	✓ |
+| Teks Link |	Tautan deskriptif (misal: "Alur Layanan", bukan "klik di sini"). |	✓ |
+| Keyboard |	Bisa dinavigasi pakai tombol Tab dan ada tombol skip link. |	✓ |
+
