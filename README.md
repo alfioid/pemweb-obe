@@ -24,7 +24,9 @@ Pada halaman website ini sudah terdapat beberapa struktur dasar HTML, seperti he
 
 
 ## Checklist aksesibilitas dasar
+
 | Parameter |	Implementasi pada Kode | Status |
+| -- | -- | -- |
 | lang |	Menggunakan <html lang="id"> untuk bahasa Indonesia. |	✓ |
 | Heading |	Terstruktur runtut: 1x h1, 3x h2, dan h3 (tidak melompat). |	✓ |
 | alt |	Gambar memiliki deskripsi jelas, ikon dekoratif memakai alt="". |	✓ |
