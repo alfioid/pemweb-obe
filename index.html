@@ -3,72 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Projek Pemrograman Web</title>
+    <title>Beranda - Dashboard Admin Kost</title>
+    <!-- 1. Menghubungkan file styles.css ke HTML -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Dashboard Admin</h1>
-        <nav>
-            <ul>
-                <li><a href="#manejemen kamar">Manejemen Kamar</a></li>
-                <li><a href="#keuangan">Histori Keuangan</a></li>
-                <li><a href="#kalender">Kalender</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="manejemen kamar">
-            <h2>Manejemen Kamar</h2>
-            <article>
-               <img src=sketsa.png alt="sketsa kost">
-                <h3>kamar 101</h3>
-                <img src=kamar.png alt="kamar  kost">
+        <div class="container header-container">
+            <h1>Dashboard Admin</h1>
+            <nav>
                 <ul>
-                    <li>kipas</li>
-                    <li>lemari</li>
-                    <li>tempat tidur</li>
+                    <li><a href="#manajemen-kamar">Manajemen Kamar</a></li>
+                    <li><a href="#keuangan">Histori Keuangan</a></li>
+                    <li><a href="#kalender">Kalender</a></li>
                 </ul>
-                <button>edit data</button>
-            </article>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Manajemen Kamar -->
+        <section id="manajemen-kamar">
+            <h2>Manajemen Kamar</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="sketsa.png" alt="sketsa kost">
+                    <h3>Kamar 101</h3>
+                    <img src="kamar.png" alt="kamar kost">
+                    <ul>
+                        <li>Kipas</li>
+                        <li>Lemari</li>
+                        <li>Tempat tidur</li>
+                    </ul>
+                    <button type="button">Edit Data</button>
+                </article>
+            </div>
         </section>
         
+        <!-- Section 2: Histori Keuangan -->
         <section id="keuangan">
             <h2>Histori Keuangan</h2>
-            <article>
-                <table border = "1">
-                <tr>
-                    <td colspan="2">total uang</td>
-                </tr>
-                <tr>
-                    <td>uang masuk</td><td>uang keluar</td>
-                </tr>
-                <tr>
-                    <td>keterangan  harganya</td> <td>keterangan harganya</td>
-            </table>
+            <article class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Total Uang</th>
+                        </tr>
+                        <tr>
+                            <th>Uang Masuk</th>
+                            <th>Uang Keluar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rp 1.500.000</td>
+                            <td>Rp 200.000</td>
+                        </tr>
+                    </tbody>
+                </table>
             </article>
         </section>
         
+        <!-- Section 3: Kalender -->
         <section id="kalender">
-          <article>
-            <h2>Kalender</h2>
-            <img src=coba alt="Foto kalender">
-            <p>Kalender berisikan jadwal bayar kost <button>edit data</button></p>
-            <h3>Cari nama</h3>
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama">
-            <table border = "1">
-                <tr>
-                    <td>nama1, nama2</td> <td>nomor kamar</td>     <td>tanggal bayar</td>
-                    <td>tanggal habis</td> <td>jumlah bayar</td>   <td>berapa bulan</td>
-                </tr>
-            </table>
-            <button>bayar</button>
-          </article>
+            <h2>Kalender Pembayaran</h2>
+            <article class="card">
+                <img src="coba.png" alt="Foto kalender">
+                <p>Kalender berisikan jadwal bayar kost. <button type="button">Edit Data</button></p>
+                
+                <h3>Cari Nama Penghuni</h3>
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama penghuni...">
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Penghuni</th>
+                                <th>No. Kamar</th>
+                                <th>Tgl Bayar</th>
+                                <th>Tgl Habis</th>
+                                <th>Jumlah Bayar</th>
+                                <th>Durasi (Bulan)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Budi S.</td>
+                                <td>101</td>
+                                <td>01/09/2026</td>
+                                <td>01/10/2026</td>
+                                <td>Rp 500.000</td>
+                                <td>1 Bulan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="btn-primary">Bayar</button>
+            </article>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2023 Projek Pemrograman Web. <a href="https://github.com/alfioid/pemweb-obe">GitHub</a> </p>
-        
+        <div class="container">
+            <p>&copy; 2026 Projek Pemrograman Web. <a href="https://github.com/alfioid/pemweb-obe" target="_blank" rel="noopener">GitHub</a></p>
+        </div>
     </footer>
 </body>
-</html
+</html>

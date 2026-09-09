@@ -24,7 +24,6 @@ Pada halaman website ini sudah terdapat beberapa struktur dasar HTML, seperti he
 
 
 ## Checklist aksesibilitas dasar
-
 | Parameter |	Implementasi pada Kode | Status |
 | -- | -- | -- |
 | lang |	Menggunakan <html lang="id"> untuk bahasa Indonesia. |	✓ |

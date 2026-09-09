@@ -6,4 +6,4 @@
 | 08-09-2026 | Meminta memberikan semua sintak html beserta penjelasan	| berikan saya sintak bahasa html beserta penjelasannya  | AI memberikan semua sintak dan penjelasan bahasa html | -- | menjadikan penjelasan tersebut untuk membuat Dashboard admin |
 
 https://share.gemini.google/fb9aIspmi35v
-https://share.gemini.google/yw75IPcO3IVo
+https://share.gemini.google/yw75IPcO3IVogit 

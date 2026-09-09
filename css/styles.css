@@ -1,0 +1,170 @@
+/* 1. Custom Properties (:root) untuk variabel warna & spacing */
+:root { 
+  --brand: #4f46e5; 
+  --surface: #ffffff; 
+  --text: #1f2937; 
+  --background: #f3f4f6;
+  --space-1: 0.5rem; 
+  --space-2: 1rem; 
+  --radius: 0.5rem; 
+} 
+
+/* 2. CSS Reset ringan & Box-Sizing */
+* { 
+  box-sizing: border-box; 
+} 
+
+body { 
+  margin: 0; 
+  font-family: system-ui, sans-serif; 
+  line-height: 1.5; 
+  color: var(--text); 
+  background-color: var(--background); 
+} 
+
+/* Pembungkus utama agar konten di tengah */
+.container { 
+  width: min(100% - 2rem, 60rem); 
+  margin-inline: auto; 
+} 
+
+/* 3. Header & Navigation dengan Flexbox */
+header { 
+  background: var(--surface); 
+  padding: var(--space-2); 
+  border-bottom: 1px solid #ddd; 
+} 
+
+nav ul { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: var(--space-2); 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+} 
+
+nav a { 
+  text-decoration: none; 
+  color: var(--brand); 
+  font-weight: bold; 
+} 
+
+/* 4. Card Layout dengan CSS Grid */
+.cards { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); 
+  gap: var(--space-2); 
+  margin-block: var(--space-2); 
+} 
+
+.card { 
+  background: var(--surface); 
+  padding: var(--space-2); 
+  border-radius: var(--radius); 
+  border: 1px solid #e5e7eb; 
+} 
+
+/* Fitur Button & Tabel Sederhana */
+button { 
+  background: var(--brand); 
+  color: #fff; 
+  border: none; 
+  padding: var(--space-1) var(--space-2); 
+  border-radius: var(--radius); 
+  cursor: pointer; 
+} 
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-block: var(--space-2); 
+} 
+
+th, td { 
+  border: 1px solid #ddd; 
+  padding: var(--space-1); 
+  text-align: left; 
+} 
+
+/* 5. Aksesibilitas Focus State (Keyboard Navigation) */
+a:focus-visible, 
+button:focus-visible, 
+input:focus-visible { 
+  outline: 3px solid #111; 
+  outline-offset: 3px; 
+} 
+
+/* 6. Media Query untuk Layar Lebar (Tablet/Desktop) */
+@media (min-width: 48rem) { 
+  header .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+  } 
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2. Pembungkus tabel agar bisa di-scroll ke samping jika layarnya terlalu sempit */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-block: var(--space-2);
+}
+
+/* ==========================================================================
+   POIN 1: Grid 1 Kolom (Mobile) & 3 Kolom (Layar Lebar)
+   ========================================================================== */
+.cards-three-cols {
+  display: grid;
+  /* Default Mobile: 1 Kolom */
+  grid-template-columns: 1fr; 
+  gap: var(--space-2);
+}
+
+/* Breakpoint berbasis konten untuk layar lebar */
+@media (min-width: 48rem) {
+  .cards-three-cols {
+    /* Layar Lebar: 3 Kolom sejajar */
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+/* ==========================================================================
+   POIN 2: Navigasi Wrap Tanpa Horizontal Scroll
+   ========================================================================== */
+nav ul {
+  display: flex;
+  flex-wrap: wrap; /* Mengizinkan menu turun ke bawah jika layar sempit */
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==========================================================================
+   POIN 3: Komponen Hero (Perbandingan Unit Ukuran)
+   ========================================================================== */
+.hero-demo {
+  /* % : Lebar responsif mengikuti % kontainer induk */
+  width: 100%; 
+
+  /* clamp() : Ukuran font fluid (Min: 1.5rem, Ideal: 4vw, Max: 2.5rem) */
+  font-size: clamp(1.5rem, 4vw, 2.5rem); 
+
+  /* rem : Spacing konsisten berbasis root font-size (1rem = 16px) */
+  padding: 2rem; 
+
+  /* px : Digunakan untuk border yang butuh presisi ukuran tetap */
+  border: 2px solid var(--brand); 
+
+  /* fr : Mengatur proporsi kolom CSS Grid pada Hero */
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Kolom kiri 2x lebih lebar dari kolom kanan */
+  gap: 1rem;
+}
