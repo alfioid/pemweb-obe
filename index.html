@@ -3,113 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Dashboard Admin Kost</title>
-    <!-- 1. Menghubungkan file styles.css ke HTML -->
+    <title>Dashboard Admin Kost</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+
+    <!-- Header & Navigasi -->
+    <header class="navbar">
         <div class="container header-container">
-            <h1>Dashboard Admin</h1>
+            <h1 class="logo">Dashboard Admin</h1>
             <nav>
                 <ul>
-                    <li><a href="#manajemen-kamar">Manajemen Kamar</a></li>
-                    <li><a href="#keuangan">Histori Keuangan</a></li>
-                    <li><a href="#kalender">Kalender</a></li>
+                    <li><a href="#kamar">Manajemen Kamar</a></li>
+                    <li><a href="#kalender">Jadwal Bayar</a></li>
+                    <li><a href="#keuangan">Keuangan</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Section 1: Manajemen Kamar -->
-        <section id="manajemen-kamar">
-            <h2>Manajemen Kamar</h2>
-            <div class="cards">
-                <article class="card">
-                    <img src="sketsa.png" alt="sketsa kost">
-                    <h3>Kamar 101</h3>
-                    <img src="kamar.png" alt="kamar kost">
-                    <ul>
-                        <li>Kipas</li>
-                        <li>Lemari</li>
-                        <li>Tempat tidur</li>
-                    </ul>
-                    <button type="button">Edit Data</button>
-                </article>
+    <main>
+        <!-- SEKSI 1: Kiri Gambar Kamar | Kanan Monitoring Catatan Belanja -->
+        <section id="kamar" class="section">
+            <div class="container grid-2-col">
+                <div class="content-left">
+                    <img src="kamar.png" alt="Foto Kamar Kost" class="section-img">
+                </div>
+                <div class="content-right">
+                    <div class="card">
+                        <h2>Manajemen Kamar 101</h2>
+                        <p class="status"><strong>Status:</strong> Terisi (Budi S.)</p>
+                        <h3>Catatan Belanja Barang:</h3>
+                        <ul class="todo-list">
+                            <li><input type="checkbox" id="item1"> <label for="item1">Lampu LED (2 pcs)</label></li>
+                            <li><input type="checkbox" id="item2"> <label for="item2">Sapu & Pengki</label></li>
+                        </ul>
+                        <button type="button" class="btn">Lihat Lebih Detail</button>
+                    </div>
+                </div>
             </div>
         </section>
-        
-        <!-- Section 2: Histori Keuangan -->
-        <section id="keuangan">
-            <h2>Histori Keuangan</h2>
-            <article class="card">
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2">Total Uang</th>
-                        </tr>
-                        <tr>
-                            <th>Uang Masuk</th>
-                            <th>Uang Keluar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Rp 1.500.000</td>
-                            <td>Rp 200.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </article>
-        </section>
-        
-        <!-- Section 3: Kalender -->
-        <section id="kalender">
-            <h2>Kalender Pembayaran</h2>
-            <article class="card">
-                <img src="coba.png" alt="Foto kalender">
-                <p>Kalender berisikan jadwal bayar kost. <button type="button">Edit Data</button></p>
-                
-                <h3>Cari Nama Penghuni</h3>
-                <div class="form-group">
-                    <label for="nama">Nama:</label>
-                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama penghuni...">
-                </div>
 
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nama Penghuni</th>
-                                <th>No. Kamar</th>
-                                <th>Tgl Bayar</th>
-                                <th>Tgl Habis</th>
-                                <th>Jumlah Bayar</th>
-                                <th>Durasi (Bulan)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Budi S.</td>
-                                <td>101</td>
-                                <td>01/09/2026</td>
-                                <td>01/10/2026</td>
-                                <td>Rp 500.000</td>
-                                <td>1 Bulan</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- SEKSI 2: Kiri Monitoring Jatuh Tempo | Kanan Gambar Kalender -->
+        <section id="kalender" class="section">
+            <div class="container grid-2-col">
+                <div class="content-left">
+                    <div class="card">
+                        <h2>Monitoring Jatuh Tempo</h2>
+                        <div class="alert-box">
+                            <p><strong>Budi S. (Kamar 101)</strong></p>
+                            <p>Tgl Habis: 01/10/2026</p>
+                            <span class="badge warning">Sisa 5 Hari</span>
+                        </div>
+                        <div class="alert-box">
+                            <p><strong>Siti A. (Kamar 103)</strong></p>
+                            <p>Tgl Habis: 03/10/2026</p>
+                            <span class="badge warning">Sisa 7 Hari</span>
+                        </div>
+                        <button type="button" class="btn">Lihat Lebih Detail</button>
+                    </div>
                 </div>
-                <button type="button" class="btn-primary">Bayar</button>
-            </article>
+                <div class="content-right">
+                    <img src="coba.png" alt="Foto Kalender Jadwal Bayar" class="section-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKSI 3: Kiri Gambar Uang | Kanan Monitoring Ringkasan & Histori -->
+        <section id="keuangan" class="section">
+            <div class="container grid-2-col">
+                <div class="content-left">
+                    <img src="uang.png" alt="Gambar Kas Uang" class="section-img img-small">
+                </div>
+                <div class="content-right">
+                    <div class="card">
+                        <h2>Ringkasan Keuangan</h2>
+                        <div class="total-saldo">
+                            <span>Total Kas: Rp 1.300.000</span>
+                        </div>
+                        <h3>Histori Terbaru (2 Transaksi):</h3>
+                        <div class="table-responsive">
+                            <table class="table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>Ket.</th>
+                                        <th>Jenis</th>
+                                        <th>Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Sewa Kamar 101</td>
+                                        <td><span class="text-success">Masuk</span></td>
+                                        <td>Rp 1.500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Beli Perlengkapan</td>
+                                        <td><span class="text-danger">Keluar</span></td>
+                                        <td>Rp 200.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="btn">Lihat Lebih Detail</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Projek Pemrograman Web. <a href="https://github.com/alfioid/pemweb-obe" target="_blank" rel="noopener">GitHub</a></p>
+            <p>&copy; 2026 Dashboard Admin Kost.</p>
         </div>
     </footer>
+
 </body>
 </html>
