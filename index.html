@@ -6,8 +6,7 @@
     <title>Dashboard Admin Kost</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
+<body>\
     <!-- Header & Navigasi -->
     <header class="navbar">
         <div class="container header-container">
@@ -23,7 +22,7 @@
     </header>
 
     <main>
-        <!-- SEKSI 1: Kiri Gambar Kamar | Kanan Monitoring Catatan Belanja -->
+        <!-- SEKSI 1: Kiri Gambar Kamar | Kanan Tabel Kamar & Catatan Belanja -->
         <section id="kamar" class="section">
             <div class="container grid-2-col">
                 <div class="content-left">
@@ -31,12 +30,27 @@
                 </div>
                 <div class="content-right">
                     <div class="card">
-                        <h2>Manajemen Kamar 101</h2>
-                        <p class="status"><strong>Status:</strong> Terisi (Budi S.)</p>
-                        <h3>Catatan Belanja Barang:</h3>
+                        <h2>Manajemen Kamar Kost</h2>
+                        
+                        <!-- Tabel Kamar Dinamis (Tanpa Tipe Kamar) -->
+                        <div class="table-responsive">
+                            <table class="table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Status</th>
+                                        <th>Penghuni</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabel-kamar-body">
+                                    <!-- Data Kamar dari JavaScript akan muncul di sini -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 style="margin-top: 15px;">Catatan Belanja Barang:</h3>
                         <ul class="todo-list">
-                            <li><input type="checkbox" id="item1"> <label for="item1">Lampu LED (2 pcs)</label></li>
-                            <li><input type="checkbox" id="item2"> <label for="item2">Sapu & Pengki</label></li>
+                            <!-- Data Belanja dari JS -->
                         </ul>
                         <button type="button" class="btn">Lihat Lebih Detail</button>
                     </div>
@@ -91,7 +105,7 @@
                                         <th>Jumlah</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tabel-transaksi-body">
                                     <tr>
                                         <td>Sewa Kamar 101</td>
                                         <td><span class="text-success">Masuk</span></td>
@@ -118,6 +132,6 @@
             <p>&copy; 2026 Dashboard Admin Kost.</p>
         </div>
     </footer>
-
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
