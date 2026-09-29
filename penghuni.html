@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Penghuni - Dashboard Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigasi Kiri / Bottom Nav Bar Mobile -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item" title="Beranda">🏠</a>
+                <a href="kost.html" class="menu-item" title="Manajemen Kost">🛏️</a>
+                <a href="penghuni.html" class="menu-item active" title="Data Penghuni">👥</a>
+                <a href="uang.html" class="menu-item" title="Keuangan">💰</a>
+                <a href="edit.html" class="menu-item" title="Pengaturan Data">⚙️</a>
+            </nav>
+        </aside>
+
+        <!-- Panel Pemberitahuan & Profil (Otomatis Sembunyi di Mobile) -->
+        <section class="notification-panel">
+            <div class="profile-header">
+                <div class="profile-avatar">A</div>
+                <div class="profile-info">
+                    <h4>Alfian Admin</h4>
+                    <p>Pengelola Kost</p>
+                </div>
+            </div>
+
+            <div class="notif-section">
+                <h3>Pemberitahuan</h3>
+                <div class="notif-list">
+                    <div class="notif-card warning">
+                        <strong>Masa Sewa Habis</strong><br>
+                        2 Penghuni perlu konfirmasi perpanjangan.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Area Konten Utama -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Data Penghuni Kost</h1>
+            </div>
+
+            <!-- UI Filter & Pencarian -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="search-input">Cari Penghuni / Kamar</label>
+                    <input type="text" id="search-input" class="filter-input" placeholder="Ketik nama atau kamar...">
+                </div>
+
+                <div class="filter-group">
+                    <label>Status Kamar</label>
+                    <div class="btn-filter-group">
+                        <button class="btn-filter active" data-status="Semua">Semua</button>
+                        <button class="btn-filter" data-status="Terisi">Terisi</button>
+                        <button class="btn-filter" data-status="Kosong">Kosong</button>
+                    </div>
+                </div>
+
+                <div class="filter-group" style="max-width: 140px;">
+                    <label for="limit-select">Tampilkan</label>
+                    <select id="limit-select" class="filter-input">
+                        <option value="all">Semua</option>
+                        <option value="3">3 Item</option>
+                        <option value="6">6 Item</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grid Kartu Penghuni -->
+            <div class="cards-grid" id="penghuni-grid">
+                <!-- Diisi secara dinamis oleh JS -->
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

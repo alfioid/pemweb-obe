@@ -3,135 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin Kost</title>
+    <title>Dasbor Admin Kost Modern</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>\
-    <!-- Header & Navigasi -->
-    <header class="navbar">
-        <div class="container header-container">
-            <h1 class="logo">Dashboard Admin</h1>
-            <nav>
-                <ul>
-                    <li><a href="#kamar">Manajemen Kamar</a></li>
-                    <li><a href="#kalender">Jadwal Bayar</a></li>
-                    <li><a href="#keuangan">Keuangan</a></li>
-                </ul>
+<body>
+
+    <div class="app-container">   
+        <!-- 1. Sidebar Kiri Icon Menu -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item active" title="Beranda">🏠</a>
+                <a href="kost.html" class="menu-item" title="Manajemen Kost">🛏️</a>
+                <a href="penghuni.html" class="menu-item" title="Data Penghuni">👥</a>
+                <a href="uang.html" class="menu-item" title="Keuangan">💰</a>
+                <a href="edit.html" class="menu-item" title="Pengaturan Data">⚙️</a>
             </nav>
-        </div>
-    </header>
+        </aside>
 
-    <main>
-        <!-- SEKSI 1: Kiri Gambar Kamar | Kanan Tabel Kamar & Catatan Belanja -->
-        <section id="kamar" class="section">
-            <div class="container grid-2-col">
-                <div class="content-left">
-                    <img src="kamar.png" alt="Foto Kamar Kost" class="section-img">
+        <!-- 2. Panel Pemberitahuan & Profil -->
+        <section class="notification-panel">
+            <div class="profile-header">
+                <div class="profile-avatar">A</div>
+                <div class="profile-info">
+                    <h4>Alfian Admin</h4>
+                    <p>Pengelola Kost</p>
                 </div>
-                <div class="content-right">
-                    <div class="card">
-                        <h2>Manajemen Kamar Kost</h2>
-                        
-                        <!-- Tabel Kamar Dinamis (Tanpa Tipe Kamar) -->
-                        <div class="table-responsive">
-                            <table class="table-compact">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Status</th>
-                                        <th>Penghuni</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabel-kamar-body">
-                                    <!-- Data Kamar dari JavaScript akan muncul di sini -->
-                                </tbody>
-                            </table>
-                        </div>
+            </div>
 
-                        <h3 style="margin-top: 15px;">Catatan Belanja Barang:</h3>
-                        <ul class="todo-list">
-                            <!-- Data Belanja dari JS -->
-                        </ul>
-                        <button type="button" class="btn">Lihat Lebih Detail</button>
+            <div class="notif-section">
+                <h3>Pemberitahuan</h3>
+                <div class="notif-list">
+                    <div class="notif-card warning">
+                        <strong>Jatuh Tempo</strong><br>
+                        Budi S. (Kamar 101) sisa 5 hari lagi.
+                    </div>
+                    <div class="notif-card light">
+                        <strong>Pembayaran Masuk</strong><br>
+                        Siti A. melunasi sewa Kamar 102.
+                    </div>
+                    <div class="notif-card light">
+                        <strong>Catatan Belanja</strong><br>
+                        Lampu LED Kamar 103 perlu diganti.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEKSI 2: Kiri Monitoring Jatuh Tempo | Kanan Gambar Kalender -->
-        <section id="kalender" class="section">
-            <div class="container grid-2-col">
-                <div class="content-left">
-                    <div class="card">
-                        <h2>Monitoring Jatuh Tempo</h2>
-                        <div class="alert-box">
-                            <p><strong>Budi S. (Kamar 101)</strong></p>
-                            <p>Tgl Habis: 01/10/2026</p>
-                            <span class="badge warning">Sisa 5 Hari</span>
-                        </div>
-                        <div class="alert-box">
-                            <p><strong>Siti A. (Kamar 103)</strong></p>
-                            <p>Tgl Habis: 03/10/2026</p>
-                            <span class="badge warning">Sisa 7 Hari</span>
-                        </div>
-                        <button type="button" class="btn">Lihat Lebih Detail</button>
-                    </div>
+        <!-- 3. Main Content Area -->
+        <main class="main-content">
+            
+            <div class="top-bar">
+                <h1 class="page-title">Beranda</h1>
+            </div>
+
+            <!-- Row 1: Visual Stat Keuangan & Kamar -->
+            <div class="stats-row">
+                <div class="card-dashboard">
+                    <h4>Kas Masuk Bulanan</h4>
+                    <div class="big-number" id="stat-pemasukan">Rp 4.500.000</div>
+                    <div class="wave-placeholder"></div>
                 </div>
-                <div class="content-right">
-                    <img src="coba.png" alt="Foto Kalender Jadwal Bayar" class="section-img">
+                <div class="card-dashboard">
+                    <h4>Kamar Kosong</h4>
+                    <div class="big-number" id="stat-kamar">1 Kamar</div>
+                    <p style="color: var(--color-text-muted); font-size: 0.85rem;">Terisi: 3 dari 4 Kamar</p><br>
+                    <h4>Penghuni</h4>
+                    <div class="big-number" id="stat-penghuni">3 orang</div>
+                </div>
+                
+            </div>
+
+            <!-- Row 2: Grid Tombol Akses Cepat ke Modul Utama -->
+            <div class="quick-access-grid">
+                <a href="kost.html" class="action-card purple">
+                    <div>
+                        <h3>Manajemen Kost</h3>
+                        <p>Atur status kamar cowok & cewek</p>
+                    </div>
+                    <span class="btn-pill">Kelola</span>
+                </a>
+
+                <a href="penghuni.html" class="action-card medium-purple">
+                    <div>
+                        <h3>Data Penghuni</h3>
+                        <p>Lihat profil & kontak penghuni</p>
+                    </div>
+                    <span class="btn-pill">Lihat Data</span>
+                </a>
+
+                <a href="uang.html" class="action-card pink-accent">
+                    <div>
+                        <h3>Laporan Keuangan</h3>
+                        <p>Histori kas masuk & pengeluaran</p>
+                    </div>
+                    <span class="btn-pill">Buka Kas</span>
+                </a>
+            </div>
+
+            <!-- Row 3: Aktivitas Terbaru -->
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h3>Aktivitas Terbaru</h3>
+                    <a href="uang.html" style="color: var(--color-accent); font-size: 0.85rem; text-decoration: none; font-weight: 600;">Lihat Lebih Banyak</a>
+                </div>
+                <div class="activity-item">
+                    Pembayaran sewa oleh <strong>Budi S.</strong> sebesar Rp 1.500.000 (Sewa Kamar 101)
+                </div>
+                <div class="activity-item">
+                    Pembelian perlengkapan kost sebesar Rp 200.000 (Pengeluaran Kas)
                 </div>
             </div>
-        </section>
 
-        <!-- SEKSI 3: Kiri Gambar Uang | Kanan Monitoring Ringkasan & Histori -->
-        <section id="keuangan" class="section">
-            <div class="container grid-2-col">
-                <div class="content-left">
-                    <img src="uang.png" alt="Gambar Kas Uang" class="section-img img-small">
-                </div>
-                <div class="content-right">
-                    <div class="card">
-                        <h2>Ringkasan Keuangan</h2>
-                        <div class="total-saldo">
-                            <span>Total Kas: Rp 1.300.000</span>
-                        </div>
-                        <h3>Histori Terbaru (2 Transaksi):</h3>
-                        <div class="table-responsive">
-                            <table class="table-compact">
-                                <thead>
-                                    <tr>
-                                        <th>Ket.</th>
-                                        <th>Jenis</th>
-                                        <th>Jumlah</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tabel-transaksi-body">
-                                    <tr>
-                                        <td>Sewa Kamar 101</td>
-                                        <td><span class="text-success">Masuk</span></td>
-                                        <td>Rp 1.500.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Beli Perlengkapan</td>
-                                        <td><span class="text-danger">Keluar</span></td>
-                                        <td>Rp 200.000</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <button type="button" class="btn">Lihat Lebih Detail</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Dashboard Admin Kost.</p>
-        </div>
-    </footer>
+    </div>
+
     <script type="module" src="js/app.js"></script>
 </body>
 </html>

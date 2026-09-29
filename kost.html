@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Kost - Dashboard Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigasi Kiri -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item" title="Beranda">🏠</a>
+                <a href="kost.html" class="menu-item active" title="Manajemen Kost">🛏️</a>
+                <a href="penghuni.html" class="menu-item" title="Data Penghuni">👥</a>
+                <a href="uang.html" class="menu-item" title="Keuangan">💰</a>
+                <a href="edit.html" class="menu-item" title="Pengaturan Data">⚙️</a>
+            </nav>
+        </aside>
+
+        <!-- Panel Pemberitahuan & Profil -->
+        <section class="notification-panel">
+            <div class="profile-header">
+                <div class="profile-avatar">A</div>
+                <div class="profile-info">
+                    <h4>Alfian Admin</h4>
+                    <p>Pengelola Kost</p>
+                </div>
+            </div>
+
+            <div class="notif-section">
+                <h3>Pemberitahuan</h3>
+                <div class="notif-list">
+                    <div class="notif-card warning">
+                        <strong>Kamar 103</strong><br>
+                        Perlu perawatan kran air.
+                    </div>
+                    <div class="notif-card light">
+                        <strong>Denah Terbaru</strong><br>
+                        Denah lantai 1 telah diperbarui.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Area Utama -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Manajemen Kost</h1>
+            </div>
+
+            <!-- Grid Denah & Tabel Kamar -->
+            <div class="stats-row">
+                <div class="card-dashboard">
+                    <h3>Denah Rumah</h3>
+                    <img src="kamar.png" alt="Denah Rumah Kost" style="width: 100%; border-radius: 12px; margin-top: 1rem; object-fit: cover;">
+                </div>
+                
+                <div class="card-dashboard">
+                    <h3>Informasi Kamar & Penghuni</h3>
+                    <div class="table-responsive" style="margin-top: 1rem;">
+                        <table class="table-compact" style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #edf2f7; color: var(--color-text-muted);">
+                                    <th style="padding: 8px;">No</th>
+                                    <th style="padding: 8px;">Status</th>
+                                    <th style="padding: 8px;">Penghuni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabel-kamar-body">
+                                <!-- Diisi oleh JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catatan Belanja -->
+            <div class="activity-card">
+                <h3>Catatan Belanja Barang & Total Harga</h3>
+                <ul class="todo-list" style="margin-top: 1rem; padding-left: 1.2rem; line-height: 1.8;"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Keuangan - Dashboard Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigasi Kiri -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item" title="Beranda">🏠</a>
+                <a href="kost.html" class="menu-item" title="Manajemen Kost">🛏️</a>
+                <a href="penghuni.html" class="menu-item" title="Data Penghuni">👥</a>
+                <a href="uang.html" class="menu-item active" title="Keuangan">💰</a>
+                <a href="edit.html" class="menu-item" title="Pengaturan Data">⚙️</a>
+            </nav>
+        </aside>
+
+        <!-- Area Utama -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Keuangan</h1>
+            </div>
+
+            <!-- Ringkasan Total Uang -->
+            <div class="card-dashboard" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: var(--color-white);">
+                <h2 id="total-uang-text" style="font-size: 2rem; color: #ffffff;">Total Uang: Rp 1.300.000</h2>
+            </div>
+
+            <!-- Grid Uang Masuk & Uang Keluar -->
+            <div class="stats-row">
+                <div class="card-dashboard">
+                    <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Uang Masuk</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #edf2f7; color: var(--color-text-muted);">
+                                    <th style="padding: 8px;">Keterangan</th>
+                                    <th style="padding: 8px;">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabel-uang-masuk"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-dashboard">
+                    <h3 style="color: var(--color-accent); margin-bottom: 1rem;">Uang Keluar</h3>
+                    <div class="table-responsive">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #edf2f7; color: var(--color-text-muted);">
+                                    <th style="padding: 8px;">Keterangan</th>
+                                    <th style="padding: 8px;">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabel-uang-keluar"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

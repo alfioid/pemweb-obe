@@ -1,104 +1,138 @@
-import { 
-    dataKamar, 
-    dataTransaksi, 
-    belanjaKamar, 
-    hitungSisaHari, 
-    hitungTotalKas, 
-    dapatkanKamarJatuhTempo 
-} from './dataManager.js';
+import { dataKamar, hitungTotalKas } from './dataManager.js';
+
+let statusFilter = "Semua";
+let searchQuery = "";
+
+// 1. Dapatkan limit dari localStorage jika ada, jika tidak default 'all'
+let limitItems = localStorage.getItem('limitPenghuni') || "all";
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Aplikasi Dashboard Admin Kost Berhasil Dimuat.");
+    // Set nilai dropdown limit sesuai dengan localStorage yang tersimpan
+    const limitSelect = document.getElementById("limit-select");
+    if (limitSelect) {
+        limitSelect.value = limitItems;
+    }
 
-    renderTabelKamar();
-    renderCatatanBelanja();
-    renderJatuhTempo();
-    renderKeuangan();
-    initButtonEvents();
+    updateDashboardUI();
+    renderPenghuniGrid();
+    setupEventListeners();
 });
 
-// Render Daftar Kamar ke Tabel HTML (Tanpa Kolom Tipe)
-function renderTabelKamar() {
-    const tbodyKamar = document.getElementById("tabel-kamar-body");
-    if (!tbodyKamar) return;
+function updateDashboardUI() {
+    const statPemasukan = document.getElementById("stat-pemasukan");
+    const statKamar = document.getElementById("stat-kamar");
 
-    try {
-        tbodyKamar.innerHTML = dataKamar.map(kamar => `
-            <tr>
-                <td>${kamar.id}</td>
-                <td>
-                    <span class="badge ${kamar.status === 'Terisi' ? 'warning' : ''}">
-                        ${kamar.status}
-                    </span>
-                </td>
-                <td>${kamar.penghuni}</td>
-            </tr>
-        `).join("");
-    } catch (error) {
-        console.error("Gagal memuat data kamar:", error.message);
+    if (statPemasukan) {
+        statPemasukan.textContent = `Rp ${hitungTotalKas().toLocaleString('id-ID')}`;
+    }
+
+    if (statKamar) {
+        const kamarKosong = dataKamar.filter(k => k.status === "Kosong").length;
+        statKamar.textContent = `${kamarKosong} Kamar`;
     }
 }
 
-function renderCatatanBelanja() {
-    const listContainer = document.querySelector(".todo-list");
-    if (!listContainer) return;
+function renderPenghuniGrid() {
+    const gridContainer = document.getElementById("penghuni-grid");
+    if (!gridContainer) return;
 
-    listContainer.innerHTML = belanjaKamar.map(item => `
-        <li>
-            <input type="checkbox" id="item${item.id}" ${item.selesai ? 'checked' : ''}>
-            <label for="item${item.id}">${item.namaBarang}</label>
-        </li>
-    `).join("");
-}
-
-function renderJatuhTempo() {
-    const cardJatuhTempo = document.querySelector("#kalender .card");
-    if (!cardJatuhTempo) return;
-
-    const kamarJatuhTempo = dapatkanKamarJatuhTempo();
-    const existingAlerts = cardJatuhTempo.querySelectorAll(".alert-box");
-    existingAlerts.forEach(el => el.remove());
-
-    const btn = cardJatuhTempo.querySelector(".btn");
-
-    kamarJatuhTempo.forEach(kamar => {
-        const sisaHari = hitungSisaHari(kamar.tglHabis);
-        const alertDiv = document.createElement("div");
-        alertDiv.className = "alert-box";
-        alertDiv.innerHTML = `
-            <p><strong>${kamar.penghuni} (Kamar ${kamar.id})</strong></p>
-            <p>Tgl Habis: ${kamar.tglHabis}</p>
-            <span class="badge warning">Sisa ${sisaHari} Hari</span>
-        `;
-        cardJatuhTempo.insertBefore(alertDiv, btn);
+    let filteredData = dataKamar.filter(item => {
+        const matchStatus = statusFilter === "Semua" || item.status === statusFilter;
+        const matchSearch = item.penghuni.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            `kamar ${item.id}`.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchStatus && matchSearch;
     });
-}
 
-function renderKeuangan() {
-    const totalKasElement = document.querySelector(".total-saldo span");
-    const tbodyKeuangan = document.getElementById("tabel-transaksi-body");
-
-    const totalSaldo = hitungTotalKas();
-    if (totalKasElement) {
-        totalKasElement.textContent = `Total Kas: Rp ${totalSaldo.toLocaleString('id-ID')}`;
+    if (limitItems !== "all") {
+        filteredData = filteredData.slice(0, parseInt(limitItems));
     }
 
-    if (tbodyKeuangan) {
-        tbodyKeuangan.innerHTML = dataTransaksi.map(tr => `
-            <tr>
-                <td>${tr.ket}</td>
-                <td><span class="${tr.jenis === 'Masuk' ? 'text-success' : 'text-danger'}">${tr.jenis}</span></td>
-                <td>Rp ${tr.nominal.toLocaleString('id-ID')}</td>
-            </tr>
-        `).join("");
+    if (filteredData.length === 0) {
+        gridContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--color-text-muted); padding: 20px;">Data tidak ditemukan.</p>`;
+        return;
     }
+
+    gridContainer.innerHTML = filteredData.map(item => `
+        <div class="card-item">
+            <div class="card-header">
+                <h3 class="card-title">Kamar ${item.id}</h3>
+                <span class="badge ${item.status === 'Terisi' ? 'badge-terisi' : 'badge-kosong'}">${item.status}</span>
+            </div>
+            
+            <div class="card-info-list">
+                <div class="info-row">
+                    <span class="info-label">Nama Penghuni</span>
+                    <span class="info-value">${item.penghuni}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tanggal Bayar</span>
+                    <span class="info-value">${item.tglBayar || '-'}</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Tenggat Bayar</span>
+                    <span class="info-value">${item.tglHabis}</span>
+                </div>
+                <div class="info-row" style="margin-top: 4px; padding-top: 6px; border-top: 1px dashed #e2e8f0;">
+                    <span class="info-label">Harga Sewa</span>
+                    <span class="info-value" style="color: var(--color-primary);">Rp ${item.harga.toLocaleString('id-ID')} / bln</span>
+                </div>
+            </div>
+
+            <!-- Tambahkan data-id untuk Event Delegation -->
+            <button class="btn-action btn-detail" data-id="${item.id}">Detail Penghuni</button>
+        </div>
+    `).join('');
 }
 
-function initButtonEvents() {
-    const buttons = document.querySelectorAll(".btn");
-    buttons.forEach((btn, index) => {
-        btn.addEventListener("click", () => {
-            alert(`Fitur Detail Bagian ${index + 1} sedang dikembangkan!`);
+function setupEventListeners() {
+    // 1. Event Input Pencarian
+    const searchInput = document.getElementById("search-input");
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            searchQuery = e.target.value;
+            renderPenghuniGrid();
+        });
+    }
+
+    // 2. Event Filter Status
+    const filterButtons = document.querySelectorAll(".btn-filter");
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            filterButtons.forEach(b => b.classList.remove("active"));
+            e.target.classList.add("active");
+            statusFilter = e.target.getAttribute("data-status");
+            renderPenghuniGrid();
         });
     });
+
+    // 3. Event Limit Tampilan + SIMPAN KE LOCALSTORAGE
+    const limitSelect = document.getElementById("limit-select");
+    if (limitSelect) {
+        limitSelect.addEventListener("change", (e) => {
+            limitItems = e.target.value;
+            localStorage.setItem('limitPenghuni', limitItems); // Simpan ke Web Storage
+            renderPenghuniGrid();
+        });
+    }
+
+    // 4. EVENT DELEGATION pada Induk Container (#penghuni-grid)
+    const gridContainer = document.getElementById("penghuni-grid");
+    if (gridContainer) {
+        gridContainer.addEventListener("click", (e) => {
+            const btnDetail = e.target.closest(".btn-detail");
+            if (btnDetail) {
+                const kamarId = btnDetail.getAttribute("data-id");
+                const item = dataKamar.find(k => k.id == kamarId);
+                
+                if (item) {
+                    alert(`=== DETAIL PENGHUNI ===\n` +
+                          `Kamar: Kamar ${item.id}\n` +
+                          `Status: ${item.status}\n` +
+                          `Penghuni: ${item.penghuni}\n` +
+                          `Tenggat Bayar: ${item.tglHabis}\n` +
+                          `Harga Sewa: Rp ${item.harga.toLocaleString('id-ID')}`);
+                }
+            }
+        });
+    }
 }

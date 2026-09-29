@@ -5,6 +5,10 @@
 | 08-09-2026 | Meminta memberikan contoh Dashboard menggunakan bahasa html agar mendapat gambaran	| buatkan saya Dashboard menggunakan bahasa html  | membuatkan program untuk Dashboard admin | -- | menjadikan Dashboard tersebut sebagai referensi |
 | 08-09-2026 | Meminta memberikan semua sintak html beserta penjelasan	| berikan saya sintak bahasa html beserta penjelasannya  | AI memberikan semua sintak dan penjelasan bahasa html | -- | menjadikan penjelasan tersebut untuk membuat Dashboard admin |
 | 15-09-2026 | Meminta format ui untuk dashboard admin dari gambar yang dikirim	| bantu saya membuatkan web dengan ui seperti di gambar  | AI memberikan semua program html dan css | -- | masih perlu di perbaiki lagi |
+| 29-09-2026 | Mendesain ulang ui yang digunakan dan membaginya dalam beberapa html	| buatkan saya desain ui sebagai berikut | AI memberikan semua program html dan css untuk tampilan tersebut | -- | masih perlu di perbaiki lagi |
+
+
 
 https://share.gemini.google/fb9aIspmi35v
 https://share.gemini.google/L881lffVGpV4
+https://share.gemini.google/nv1J939dF6HE
