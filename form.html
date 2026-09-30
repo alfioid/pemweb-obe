@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran & Pengaduan - Dashboard Kost</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Navigasi Kiri / Bottom Nav Bar Mobile -->
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item" title="Beranda">🏠</a>
+                <a href="kost.html" class="menu-item" title="Manajemen Kost">🛏️</a>
+                <a href="penghuni.html" class="menu-item" title="Data Penghuni">👥</a>
+                <a href="uang.html" class="menu-item" title="Keuangan">💰</a>
+                <a href="form.html" class="menu-item active" title="Form Pendaftaran">📝</a>
+                <a href="edit.html" class="menu-item" title="Pengaturan Data">⚙️</a>
+            </nav>
+        </aside>
+
+
+
+        <!-- Area Konten Utama -->
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Form Layanan Penghuni & Calon Penyewa</h1>
+            </div>
+
+            <!-- Kontainer Form Utama -->
+            <div class="card-dashboard form-card-container">
+                <!-- Tab Navigasi Form -->
+                <div class="form-tabs" role="tablist" aria-label="Tipe Layanan Form">
+                    <button type="button" class="tab-btn active" id="tab-pendaftaran" role="tab" aria-selected="true" aria-controls="panel-pendaftaran">Pendaftaran Sewa Kamar</button>
+                    <button type="button" class="tab-btn" id="tab-pengaduan" role="tab" aria-selected="false" aria-controls="panel-pengaduan">Laporan Kendala / Pengaduan</button>
+                </div>
+
+                <!-- 1. Form Pendaftaran Sewa Kamar Kost -->
+                <section id="panel-pendaftaran" role="tabpanel" aria-labelledby="tab-pendaftaran">
+                    <h2 class="form-title">Pendaftaran Sewa Kamar Kost</h2>
+                    <form id="form-pendaftaran-sewa" novalidate>
+                        
+                        <div class="form-group">
+                            <label for="nama-penyewa">Nama Lengkap Calon Penghuni <span class="required">*</span></label>
+                            <input type="text" id="nama-penyewa" name="namaPenyewa" class="filter-input" placeholder="Masukkan nama lengkap Anda" required aria-required="true" aria-describedby="desc-nama">
+                            <span class="help-text" id="desc-nama">Nama sesuai KTP/Kartu Identitas resmi.</span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email-penyewa">Email / Kontak WhatsApp <span class="required">*</span></label>
+                                <input type="email" id="email-penyewa" name="emailPenyewa" class="filter-input" placeholder="contoh@email.com atau 081234..." required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pilihan-kamar">Pilihan Tipe Kamar / Nomor Kamar <span class="required">*</span></label>
+                                <select id="pilihan-kamar" name="pilihanKamar" class="filter-input" required aria-required="true">
+                                    <option value="" disabled selected>-- Pilih Tipe/Nomor Kamar --</option>
+                                    <option value="101">Kamar 101 - Lantai 1 (Rp 1.500.000 / bln)</option>
+                                    <option value="102">Kamar 102 - Lantai 1 (Rp 1.500.000 / bln)</option>
+                                    <option value="103">Kamar 103 - Lantai 1 (Kosong)</option>
+                                    <option value="104">Kamar 104 - Lantai 2 (Rp 1.500.000 / bln)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="durasi-sewa">Durasi Sewa (Bulan) <span class="required">*</span></label>
+                                <input type="number" id="durasi-sewa" name="durasiSewa" class="filter-input" min="1" max="24" value="1" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tgl-masuk">Rencana Tanggal Masuk <span class="required">*</span></label>
+                                <input type="date" id="tgl-masuk" name="tglMasuk" class="filter-input" required aria-required="true">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="catatan-pendaftaran">Catatan / Permintaan Khusus</label>
+                            <textarea id="catatan-pendaftaran" name="catatanPendaftaran" class="filter-input" rows="3" placeholder="Tambahkan catatan jika ada..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="setuju-syarat" name="setujuSyarat" required aria-required="true">
+                            <label for="setuju-syarat">Saya menyetujui semua peraturan dan ketentuan yang berlaku di kost ini. <span class="required">*</span></label>
+                        </div>
+
+                        <button type="submit" class="btn-action btn-submit">Kirim Pendaftaran</button>
+                    </form>
+                </section>
+
+                <!-- 2. Form Laporan Kendala / Pengaduan Penghuni -->
+                <section id="panel-pengaduan" role="tabpanel" aria-labelledby="tab-pengaduan" style="display: none;">
+                    <h2 class="form-title">Laporan Kendala / Pengaduan Penghuni</h2>
+                    <form id="form-pengaduan-kendala" novalidate>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nama-penghuni-lapor">Nama Penghuni <span class="required">*</span></label>
+                                <input type="text" id="nama-penghuni-lapor" name="namaPenghuniLapor" class="filter-input" placeholder="Masukkan nama Anda" required aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nomor-kamar-lapor">Nomor Kamar <span class="required">*</span></label>
+                                <input type="number" id="nomor-kamar-lapor" name="nomorKamarLapor" class="filter-input" placeholder="Contoh: 101" required aria-required="true">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="kategori-kendala">Kategori Kendala <span class="required">*</span></label>
+                                <select id="kategori-kendala" name="kategoriKendala" class="filter-input" required aria-required="true">
+                                    <option value="" disabled selected>-- Pilih Kategori Kendala --</option>
+                                    <option value="Air/Plumbing">Fasilitas Air / Plumbing</option>
+                                    <option value="Listrik/Elektronik">Listrik & Lampu / Elektronik</option>
+                                    <option value="Kebersihan">Kebersihan Lingkungan Kost</option>
+                                    <option value="Keamanan">Keamanan & Kebisingan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tgl-kejadian">Tanggal Kejadian / Ditemukan <span class="required">*</span></label>
+                                <input type="date" id="tgl-kejadian" name="tglKejadian" class="filter-input" required aria-required="true">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deskripsi-kendala">Deskripsi Detail Kendala / Keluhan <span class="required">*</span></label>
+                            <textarea id="deskripsi-kendala" name="deskripsiKendala" class="filter-input" rows="4" placeholder="Jelaskan kendala secara rinci agar pengelola dapat menindaklanjuti..." required aria-required="true"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="konfirmasi-pemeriksaan" name="konfirmasiPemeriksaan" required aria-required="true">
+                            <label for="konfirmasi-pemeriksaan">Saya mengizinkan teknisi/pengelola masuk ke kamar untuk melakukan perbaikan jika diperlukan. <span class="required">*</span></label>
+                        </div>
+
+                        <button type="submit" class="btn-action btn-submit">Kirim Laporan Pengaduan</button>
+                    </form>
+                </section>
+
+                <div id="form-alert" class="alert-box" style="display: none;" aria-live="polite"></div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/form.js"></script>
+</body>
+</html>

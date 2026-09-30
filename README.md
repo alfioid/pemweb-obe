@@ -62,3 +62,27 @@ Pada halaman website ini sudah terdapat beberapa struktur dasar HTML, seperti he
 
 * **Keputusan:** Menggunakan `object-fit: cover` pada gambar dan `overflow-x: auto` pada tabel.
 * **Alasan:** Mencegah gambar terlihat gepeng serta menjaga tabel agar tidak merusak/melebarkan tampilan layar HP saat di-scroll.
+
+
+## Latihan Praktikum A: Accessible Form Proyek
+
+### 1. Tujuan Form
+Modul form ini dibangun untuk memfasilitasi dua fungsi utama pada sistem Manajemen Kost Modern:
+* **Pendaftaran Sewa Kamar:** Memungkinkan calon penyewa mendaftar, memilih kamar, menentukan durasi sewa, serta jadwal tanggal mulai masuk.
+* **Pengaduan Kendala / Laporan:** Memungkinkan penghuni aktif menyampaikan keluhan atau gangguan fasilitas (listrik, air, kebersihan, keamanan) secara mandiri.
+
+---
+
+### 2. Catatan Aksesibilitas (Accessibility / A11y)
+Form ini dirancang sesuai standar aksesibilitas web W3C WCAG:
+1. **Pemanfaatan Semantik HTML & ARIA Attributes:**
+   * Menggunakan atribut `aria-required="true"` pada setiap input yang wajib diisi.
+   * Penggunaan `role="tablist"`, `role="tab"`, dan `role="tabpanel"` untuk navigasi tab form yang ramah *screen reader*.
+   * Menggunakan `aria-describedby` untuk menghubungkan input dengan pesan petunjuk penjelas.
+2. **Keterhubungan Label & Input (`for` - `id`):**
+   * Semua bidang input terhubung eksplisit dengan elemen `<label>` melalui atribut `for` dan `id`, sehingga pengguna *screen reader* dapat mendengar konteks input secara tepat.
+3. **Pesan Pemberitahuan Dinamis (`aria-live="polite"`):**
+   * Elemen notifikasi status form menggunakan `aria-live="polite"` agar perubahan status validasi/berhasil langsung dibacakan oleh perangkat bantu tanpa mengganggu pengguna.
+4. **Ukuran Target Sentuh & Kontras Warna:**
+   * Tombol dan bidang input memiliki ukuran yang memenuhi standar layar sentuh perangkat mobile.
+   * Kontras warna antara teks dan latar belakang memenuhi standar minimum kecerahan.

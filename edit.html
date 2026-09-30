@@ -16,6 +16,7 @@
                 <a href="kost.html" class="menu-item" title="Manajemen Kost">🛏️</a>
                 <a href="penghuni.html" class="menu-item" title="Data Penghuni">👥</a>
                 <a href="uang.html" class="menu-item" title="Keuangan">💰</a>
+                <a href="form.html" class="menu-item" title="Form Pendaftaran">📝</a>
                 <a href="edit.html" class="menu-item active" title="Pengaturan Data">⚙️</a>
             </nav>
         </aside>
@@ -27,31 +28,32 @@
             </div>
 
             <!-- Form Edit Data -->
-            <div class="card-dashboard" style="max-width: 800px;">
-                <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Pengeditan Data Kamar & Penghuni</h2>
+           <div class="card-dashboard form-card">
+                <h2 class="form-heading">Pengeditan Data Kamar & Penghuni</h2>
                 <form id="form-edit">
-                    <div class="stats-row" style="grid-template-columns: 1fr 1fr; margin-bottom: 1.5rem;">
+                    <div class="stats-row form-grid">
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 6px;">Foto Kamar (Bisa Edit):</label>
-                            <input type="file" style="width: 100%; padding: 8px; border: 1px solid #cbd5e0; border-radius: 8px;">
+                            <label class="form-label">Foto Kamar (Bisa Edit):</label>
+                            <input type="file" class="form-input form-input--file">
                         </div>
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 6px;">Informasi Penghuni:</label>
-                            <input type="text" placeholder="Nama Penghuni" style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; outline: none;">
+                            <label class="form-label">Informasi Penghuni:</label>
+                            <input type="text" class="form-input" placeholder="Nama Penghuni">
                         </div>
                     </div>
 
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="font-weight: 600; display: block; margin-bottom: 6px;">Masukkan Uang Terbaru (Transaksi):</label>
-                        <input type="number" placeholder="Nominal Rp" style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; outline: none;">
+                    <div class="form-field">
+                        <label class="form-label">Masukkan Uang Terbaru (Transaksi):</label>
+                        <input type="number" class="form-input" placeholder="Nominal Rp">
                     </div>
 
-                    <div style="display: flex; gap: 12px;">
-                        <button type="button" class="btn-pill" style="background-color: var(--color-primary); border: none; cursor: pointer; padding: 10px 24px;">Simpan</button>
-                        <button type="button" class="btn-pill" style="background-color: #e53e3e; border: none; cursor: pointer; padding: 10px 24px;">Hapus</button>
+                    <div class="form-actions">
+                        <button type="button" class="btn-pill btn-pill--primary">Simpan</button>
+                        <button type="button" class="btn-pill btn-pill--danger">Hapus</button>
                     </div>
                 </form>
             </div>
+
         </main>
     </div>
 
